@@ -1,0 +1,61 @@
+{
+ "cli": "carvana-scraper",
+ "name": "Carvana Scraper API",
+ "version": "0.1.0",
+ "description": "Carvana scraper for Python and the command line: used-car inventory by make and model with price, previous price, MSRP, Kelley Blue Book value, mileage, VIN, trim, colours and stock number, as JSON or CSV. Free and open source; sign in with your QuanticData account, no proxies or headless browser to run.",
+ "links": {
+  "repo": "https://github.com/quantumproxies/carvana-scraper",
+  "page": "https://quanticdata.io/collectors/carvana-scraper-api/?utm_source=github&utm_medium=cli&utm_campaign=carvana-scraper",
+  "billing": "https://app.quanticdata.io/billing?utm_source=github&utm_medium=cli&utm_campaign=carvana-scraper",
+  "pricing": "https://quanticdata.io/pricing/?utm_source=github&utm_medium=cli&utm_campaign=carvana-scraper"
+ },
+ "commands": [
+  {
+   "name": "search",
+   "collector": "carvana_cars",
+   "method": "search",
+   "help": "Carvana used-car listings for a make and model",
+   "description": "Carvana used-car inventory — year/make/model/trim, price, MSRP, mileage, VIN and stock number.",
+   "positional": "make",
+   "positional_is_list": false,
+   "positional_optional": true,
+   "columns": [
+    "rank",
+    "year",
+    "make",
+    "model",
+    "trim",
+    "price",
+    "mileage",
+    "kbb_value"
+   ],
+   "sample": "carvana_cars",
+   "inputs": [
+    {
+     "name": "make",
+     "type": "string",
+     "required": false,
+     "description": "Vehicle make, e.g. \"Toyota\" or \"Mercedes-Benz\". Omit to browse all inventory.",
+     "arg": "make"
+    },
+    {
+     "name": "model",
+     "type": "string",
+     "required": false,
+     "description": "Vehicle model (requires make), e.g. \"Camry\".",
+     "arg": "model"
+    },
+    {
+     "name": "max_results",
+     "type": "integer",
+     "required": false,
+     "description": "How many listings to deliver at most (1–96). You pay only for delivered listings.",
+     "min": 1,
+     "max": 96,
+     "default": 24,
+     "arg": "max_results"
+    }
+   ]
+  }
+ ]
+}
